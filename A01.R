@@ -104,7 +104,7 @@ merged_data$Performance_Tag %>%
   sum()
 # 1425
 
-
+table(merged_data$Performance_Tag)
 # Percentage of Default
 non_default_count <- as.numeric(table(merged_data$Performance_Tag)[2])
 default_count <- as.numeric(table(merged_data$Performance_Tag)[1])
@@ -825,11 +825,11 @@ merged_data %>% is.na %>% sum()
 merged_data %>%
   filter(!is.na(Performance_Tag)) %>%
   ggplot(aes(x=Income_Bin, y=..count../1000, fill=as.factor(Performance_Tag))) +
-  geom_bar(position = "stack") +
+  geom_bar(position = "dodge") +
   theme_minimal()+
   scale_fill_manual(values = cp_2) +
   labs(x="Income Buckets", y="Frequency in 1000s", fill="Performance Tag", title="Income Bucket wise Performance Tag Frequency")
-# The Lower Income  the more chances of default. Lower Incomes have the higher default frequency
+# The Lower Income classes the more chances of default. Lower Incomes have the higher default frequency
 
 # Income vs Credit Usage
 ggplot(merged_data, aes(Income_Bin, Avg_CC_Utilization_12_months, fill = Income_Bin)) + 
@@ -898,6 +898,13 @@ ggplot(merged_data, aes(as.factor(Performance_Tag), Inquiries_12_months, fill = 
 
 
 
+# Correlation Matrix of Financial Information
+ggcorrplot(cor(merged_data[, c(2,seq(13,29,1))]), lab = T)
+
+ggplot(merged_data, aes(as.factor(Performance_Tag), Outstanding_Balance/1000, fill = as.factor(Performance_Tag))) + geom_boxplot() + 
+  labs(x="Performance", y="Outstanding Balance", fill="Performance Tag", title="Other Debt vs Performance Tag")
+
+
 #=====================================#
 # Split Dataset into Train and Test  
 #=====================================#
@@ -947,5 +954,3 @@ auc(ROC)
 #==================================#
 # Classification Tree              #
 #==================================#
-
-form <- Performance_Tag ~ Avg_CC_Utilization_12_months + Income +
