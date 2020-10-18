@@ -203,4 +203,5 @@ The model is evaluated by the an ROC plot (given below) and AUC. The model has a
 <img src="./plot/roc_plot.png" alt="roc_plot"/>
 
 #### 6 Conclusion
-Through exploratory analysis on the data on credit, we discovered that hour of the day and temperature are the two most important factors that drives the demand of bike sharing rental. Using simple linear regression model, generalized linear model, and generalized addictive model, we successfully predict the bike sharing rental count with relatively high accuracy.
+Through exploratory analysis on the data on credit, Avg_CC_Utilization_12_months, Inquiries_12_months, Income, No_Of_90_DPD_12_months, Outstanding balance are some of the 
+important variables in loan application performance. We predicted performance of test data with an accuracy of approximately 60% with a logistic regression model. We employed stepwise regression for feature selection for a step model with an area under the curve of 0.66.
