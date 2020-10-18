@@ -85,8 +85,8 @@ Logically, past behaviour on defaulting payments could indicate future defauly o
 More loan enquiries aside home and auto loans could mean the presence of other loans to service which could largerly influence loan payments. 
 
 ##### 4.5 Income and Debt
-The following plots explore the distribution income which may affect loan performance. 
-<img src="./plot/01_plot.png" alt="01_plot" width="400" height = "400"/>
+The following plots explore the distribution income which may affect loan performance.
+<img src="./plot/01_plot.png" alt="01_plot" width="400" height = "400"/> <img src="./plot/income_plot.png" alt="income_plot" width="400" height = "400"/>
 
 
 #### 5 Models

@@ -836,6 +836,10 @@ ggplot(merged_data, aes(Income_Bin, Avg_CC_Utilization_12_months, fill = Income_
   geom_boxplot()
 # Lower incomes use more Credit.
 
+# Income vs Performance
+ggplot(merged_data, aes(Performance_Tag, Income, fill = as.factor(Performance_Tag))) + 
+  geom_boxplot()
+
 # Income with Age
 ggplot(merged_data, aes(x = Age_Bin, y = Income, fill = Age_Bin)) + geom_boxplot()
 ggplot(merged_data, aes(x = Age, y = Income)) + geom_smooth()
