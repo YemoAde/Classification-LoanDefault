@@ -16,8 +16,8 @@ Exploratory Data Analysis of Credit Dataset and Classification on Loan Default
 ***
 
 #### 1 Introduction
-The purpose of credit and loan facilities is to support businesses and families. The decision to grant or reject a loan application is based on the ability of the applicant to pay back - this is based on financial standing such as income, debt, other loans, credit history etc. Data on past applications and their performances can help banks and other lenders evaluate the risk default on a granted a loan request. The dataset in this report contains about 71 000 records of loan applications.
-The objective of the analysis is to determine the important factors that contribute to loan default or non-default, explain the some of the relationships between the factors and construct models to predict performance of future application based on the trained model. The Exploratory analysis will be performed in R.
+The purpose of credit and loan facilities is to support businesses and families. The decision to grant or reject a loan application is based on the ability of the applicant to pay back - this is based on financial standing such as income, debt, other loans, credit history etc. Data on past applications and their performances can help banks and other lenders evaluate the risk of defaulting on a granted a loan request. The dataset in this report contains about 71 000 records of loan applications.
+The objective of the analysis is to determine the important factors that contribute to loan default or non-default, explain some of the relationships between the factors and construct models to predict performance of future application based on the trained model. The Exploratory analysis will be performed in R.
 #### 2 About Data
 The data for this report was provided by a Professor and a Data Scientist and can be found [here](https://github.com/dearbharat/UNBMBA6693Data). The dataset contains about 71,289 observations and 29 variables. The variables are demographic and credit information.
 The variables are
@@ -76,7 +76,7 @@ The figure above is a boxplot to show the relationship between the use of credit
 
 <img src="./plot/09_plot.png" alt="09_plot" width="400" height = "400"/> <img src="./plot/10_plot.png" alt="10_plot" width="400" height = "400"/>
 
-Exploring between relationship of late payments (30 and 60 days past due) and Performance of probablility of default.The Higher the number of Late Payments in the past the more the chances of default.
+Logically, past behaviour on defaulting payments could indicate future defauly on loans. Exploring between relationship of late payments (30 and 60 days past due) and Performance of probablility of default is reasonable.The Higher the number of Late Payments in the past the more the chances of default.
 
 ##### 4.5 Credit Check
 
@@ -85,11 +85,12 @@ Exploring between relationship of late payments (30 and 60 days past due) and Pe
 More loan enquiries aside home and auto loans could mean the presence of other loans to service which could largerly influence loan payments. 
 
 ##### 4.5 Income and Debt
-The following plots explore the distribution income which may affect loan performance. The second figure 
+The following plots explore the distribution income which may affect loan performance. 
 <img src="./plot/01_plot.png" alt="01_plot" width="400" height = "400"/>
 
 
 #### 5 Models
+
 ##### 5.1 Logistic Regression Model
 From exploratory analysis of the data, multiple variables with a seemingly good relationship were chosen:
 Outstanding Balance, Avg Credit card usage, Income, Loan Inquiries, Late Payments to fit a logistic regression model
@@ -199,7 +200,15 @@ Setting direction: controls < cases
 > auc(ROC)
 Area under the curve: 0.6611
 ```
-The model is evaluated by the an ROC plot (given below) and AUC. The model has an AUC of 0.66 which is not too high but relatively explains some of the relationship between the variables.
+The model is evaluated by an ROC plot (given below) and the area under the curve AUC. 
+The model has an AUC of 0.66 which is not too high but relatively explains some of the relationship between the variables.
+From the model the following variables have high importance in the model based on the p-values.
+- PL_Trades_6_months
+- Avg_CC_Utilization_12_months
+- Inquiries_12_months
+- No_Of_90_DPD_12_months
+- Months_In_Current_Company
+- Income
 <img src="./plot/roc_plot.png" alt="roc_plot"/>
 
 #### 6 Conclusion
